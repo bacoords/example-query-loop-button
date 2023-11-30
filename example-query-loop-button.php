@@ -30,22 +30,6 @@ function wpdev_enqueue_editor_modifications() {
 	$asset_file   = include plugin_dir_path( __FILE__ ) . 'build/index.asset.php';
 	$dependencies = $asset_file['dependencies'];
 
-	// Add extra dependencies depending on the current screen.
-	$screen = get_current_screen();
-	switch ( $screen->base ) {
-		case 'post':
-			$dependencies[] = 'wp-edit-post';
-			break;
-
-		case 'widgets':
-			$dependencies[] = 'wp-edit-widgets';
-			break;
-
-		case 'site-editor':
-			$dependencies[] = 'wp-edit-site';
-			break;
-	}
-
 	wp_enqueue_script( 'example-query-loop-button', plugin_dir_url( __FILE__ ) . 'build/index.js', $dependencies, $asset_file['version'], true );
 }
 add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\wpdev_enqueue_editor_modifications' );
