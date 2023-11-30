@@ -21,7 +21,7 @@ import { __ } from "@wordpress/i18n";
  */
 addFilter(
 	"blocks.registerBlockType",
-	"ponderosa/is-post-link",
+	"wpdev/is-post-link",
 	function (settings, name) {
 		if (name !== "core/button") {
 			return settings;
@@ -41,7 +41,7 @@ addFilter(
 				},
 			},
 		};
-	},
+	}
 );
 
 /**
@@ -102,7 +102,7 @@ function Edit(props) {
  */
 addFilter(
 	"editor.BlockEdit",
-	"ponderosa/is-post-link",
+	"wpdev/is-post-link",
 	createHigherOrderComponent((BlockEdit) => {
 		return (props) => {
 			if (props.name !== "core/button") {
@@ -116,5 +116,5 @@ addFilter(
 				</>
 			);
 		};
-	}),
+	})
 );
