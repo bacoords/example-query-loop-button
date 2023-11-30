@@ -18,11 +18,7 @@ namespace example_query_loop_button;
 use WP_HTML_Tag_Processor;
 
 /**
- * Enqueue editor specific modifications in the Post Editor, Site Editor,
- * and Widgets Editor.
- *
- * This function enqueues the `editor.js` file found in `/src/js` and
- * adds extra dependencies depending on the current screen (post, widgets, site-editor).
+ * Enqueue specific modifications for the block editor.
  *
  * @return void
  */
