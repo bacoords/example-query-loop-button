@@ -27,10 +27,8 @@ use WP_HTML_Tag_Processor;
  * @return void
  */
 function wpdev_enqueue_editor_modifications() {
-	$asset_file   = include plugin_dir_path( __FILE__ ) . 'build/index.asset.php';
-	$dependencies = $asset_file['dependencies'];
-
-	wp_enqueue_script( 'example-query-loop-button', plugin_dir_url( __FILE__ ) . 'build/index.js', $dependencies, $asset_file['version'], true );
+	$asset_file = include plugin_dir_path( __FILE__ ) . 'build/index.asset.php';
+	wp_enqueue_script( 'example-query-loop-button', plugin_dir_url( __FILE__ ) . 'build/index.js', $asset_file['dependencies'], $asset_file['version'], true );
 }
 add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\wpdev_enqueue_editor_modifications' );
 
